@@ -79,7 +79,7 @@ export const siteConfig = {
       dateRange: "2020 - 2024",
       achievements: [
         "Graduated with distinction, earning a GPA of <strong>9.18/10</strong>.",
-        "Recipient of the department's Outstanding Bachelor's and Master's Thesis Award for 2024.",
+        "Thesis selected among the department's best Bachelor and Master theses, 2024.",
         "<strong>Thesis</strong>: \"<a href=\"https://www.di.uoa.gr/sites/default/files/documents/studbook2025.pdf\#page=56\" class=\"custom-link\" target=\"_blank\" rel=\"noopener noreferrer\">Higher-Order Deep Unfolding Networks for Compressed Sensing</a>\"<br /><strong>Supervisor:</strong> Yannis Panagakis<br />Developed a deep unfolding network for compressed sensing leveraging proximal algorithms within the Augmented Lagrangian framework, integrating a novel higher-order polynomial module to enhance model expressiveness. Achieved state-of-the-art reconstruction performance with over <strong>3dB PSNR</strong> improvement at ultra-low sampling rates (<strong>1-10\%</strong>)."
       ],
     },
@@ -112,7 +112,7 @@ export const siteConfig = {
     {
       date: "May 25, 2025",
       content:
-        "My undergraduate thesis was selected for publication among the best Bachelor and Master theses of the department for 2024!",
+        "My undergraduate thesis was selected for publication among the department's best Bachelor and Master theses for 2024!",
     },
   ],
   nav: [
