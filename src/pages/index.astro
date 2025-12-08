@@ -32,7 +32,9 @@ import "../styles/global.css";
         const root = document.documentElement;
 
         const storedTheme = localStorage.getItem(storageKey);
-        if (storedTheme === "dark") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
           root.classList.add(classNameDark);
         }
 
@@ -47,8 +49,8 @@ import "../styles/global.css";
       <About />
       <News />
       <Pubs />
-      <Experience />
       <Education />
+      <Experience />
       <Projects />
     </section>
     <Footer />
