@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Giorgos Nikolaou",
   title: "MSc Data Science @ EPFL - Researher @ GLADIA & TML",
-  description: "Portfolio website of Ryan Fitzgerald",
+  description: "Portfolio website of Giorgos Nikolaou",
   accentColor: "#c1121f",
   social: {
     email: "georgios.nikolaoul@epfl.ch",
