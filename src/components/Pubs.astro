@@ -1,0 +1,78 @@
+---
+import { siteConfig } from "../config";
+const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
+---
+
+{
+  hasPubs && (
+    <section id="publications" class="p-8 sm:p-12 md:p-16 lg:p-24" data-nav-label="Publications">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="h2">
+              Selected 
+            </h2>
+            <h2 class="h2">
+              Publications
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="space-y-8">
+              {siteConfig.publications.map((project) => {
+                const Component = project.link ? "a" : "div";
+                const linkProps = project.link
+                  ? {
+                      href: project.link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {};
+
+                return (
+                  <div class="group relative">
+                    <Component
+                      {...linkProps}
+                      class={`surface-card pub-card block relative p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl transition-all duration-300 ${
+                        project.link ? "hover:-translate-y-1" : ""
+                      }`}
+                    >
+                      <div class="mb-4 space-y-3">
+                        <!-- Title row -->
+                        <div class="flex items-start justify-between">
+                          <h3 class="h4">
+                            {project.name}
+                          </h3>
+                        </div>
+
+                        <!-- Venue + date row -->
+                        <div class="flex items-center justify-between">
+                          <p class="body">
+                            <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
+                            &nbsp;–&nbsp;
+                            <span class="body">{project.date}</span>
+                          </p>
+                        </div>
+
+                        <!-- Authors -->
+                        <h3 class="authors"
+                          set:html={project.authors}
+                        />
+                      </div>
+
+                      
+                    </Component>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

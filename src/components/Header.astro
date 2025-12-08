@@ -1,0 +1,165 @@
+---
+import { siteConfig } from "../config";
+
+// (navItems still here if you use it later)
+const navItems =
+  (siteConfig.nav ?? []).filter((item) => {
+    if (!item.requires) return true;
+
+    const value = siteConfig[item.requires];
+
+    if (Array.isArray(value)) return value.length > 0;
+    return Boolean(value);
+  });
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 hidden md:block bg-transparent backdrop-blur-sm transition-all duration-300"
+  style={`--accent-color: ${siteConfig.accentColor}`}
+>
+  <nav class="relative max-w-7xl mx-auto px-8 py-4">
+    <!-- Centered nav items (built by JS) -->
+    <ul
+      id="main-nav"
+      class="flex items-center gap-8 justify-center"
+    >
+      {/* Will be populated by JS based on sections */}
+    </ul>
+
+    <!-- Theme toggle, right-aligned -->
+    <button
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle light / dark mode"
+      class="absolute right-0 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 surface-card shadow-sm backdrop-blur-sm transition-all hover:bg-gray-100 hover:ring-2 hover:ring-[var(--accent-color)]"
+    >
+      <span class="flex h-4 w-4 items-center justify-center">
+        <!-- Sun icon -->
+        <svg
+          id="theme-icon-sun"
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+
+        <!-- Moon icon -->
+        <svg
+          id="theme-icon-moon"
+          class="hidden h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="2 -4 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
+        </svg>
+      </span>
+    </button>
+  </nav>
+</header>
+
+<script>
+  const storageKey = "theme";
+  const classNameDark = "dark";
+  const root = document.documentElement;
+
+  function syncThemeIcon() {
+    const sun = document.getElementById("theme-icon-sun");
+    const moon = document.getElementById("theme-icon-moon");
+    if (!sun || !moon) return;
+
+    const isDark = root.classList.contains(classNameDark);
+
+    if (isDark) {
+      sun.classList.add("hidden");
+      moon.classList.remove("hidden");
+    } else {
+      sun.classList.remove("hidden");
+      moon.classList.add("hidden");
+    }
+  }
+
+  function buildNav() {
+    const navList = document.getElementById("main-nav");
+    if (!navList) return;
+
+    navList.innerHTML = "";
+
+    const sections = document.querySelectorAll("section[id][data-nav-label]");
+
+    sections.forEach((section) => {
+      const id = section.id;
+      const label = section.getAttribute("data-nav-label") || id;
+
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+
+      a.href = `#${id}`;
+      a.textContent = label;
+      a.className =
+        "authors nav-link-accent transition-colors font-medium";
+
+      li.appendChild(a);
+      navList.appendChild(li);
+    });
+  }
+
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      root.classList.add(classNameDark);
+    } else {
+      root.classList.remove(classNameDark);
+    }
+    localStorage.setItem(storageKey, theme);
+    syncThemeIcon();
+  }
+
+  function setThemeWithTransition(theme) {
+    root.classList.add("theme-transition");
+
+    window.requestAnimationFrame(() => {
+      applyTheme(theme);
+
+      window.setTimeout(() => {
+        root.classList.remove("theme-transition");
+      }, 450);
+    });
+  }
+
+  // Initial nav + icon sync
+  buildNav();
+  syncThemeIcon();
+
+  // If you use Astro view transitions, rebuild nav after swaps
+  document.addEventListener("astro:after-swap", () => {
+    buildNav();
+    syncThemeIcon();
+  });
+
+  // Theme toggle wiring
+  const toggleButton = document.getElementById("theme-toggle");
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const isDark = root.classList.contains(classNameDark);
+      setThemeWithTransition(isDark ? "light" : "dark");
+    });
+  }
+</script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   GLOBAL DESIGN TOKENS / VARIABLES
+   Tweak these to resize everything
+   ================================ */
+
+:root {
+  /* Global type scaling – smaller or bigger site-wide */
+  --type-scale: 0.95;          /* try 0.8, 0.9, 1, 1.1, etc */
+
+  /* Base font sizes (in rem) */
+  --h1-base: 2.5rem;
+  --h2-base: 2rem;
+  --h3-base: 1.5rem;
+  --h4-base: 1.25rem;
+  --h5-base: 1.1rem;
+
+  --authors-base: 1rem;
+
+  --body-xl-base: 1.25rem;
+  --body-lg-base: 1.125rem;
+  --body-base: 1rem;
+  --body-sm-base: 0.875rem;
+
+  /* Line heights */
+  --lh-heading: 1.1;
+  --lh-body: 1.6;
+
+  /* Colors (you can swap these to change theme easily) */
+  --color-text-main: #111827;   /* gray-900 */
+  --color-text-muted: #4b5563;  /* gray-600 */
+  --color-text-soft: #6b7280;   /* gray-500 */
+
+  /* Surface / card colors (tweak these) */
+  --surface-bg: hsla(0, 0%, 100%, 0.92);      /* card background */
+  --surface-bg-hover: hsla(0, 0%, 100%, 1);   /* hover background */
+  --surface-border: rgba(229, 231, 235, 0.9); /* border color (≈ gray-200) */
+
+  --pub-shadow-color: rgba(255, 255, 255, 0.4);
+
+  /* Major section backgrounds – LIGHT MODE */
+  --page-bg: #f9fafb;          /* overall page */
+  --hero-bg: #ffffff;          /* hero background */
+  --footer-bg: #f9fafb;        /* footer background */
+  --footer-border-color: #e5e7eb; /* footer top border (≈ gray-200) */
+
+  --hero-neutral-1: rgba(255, 255, 255, 0.3);
+  --hero-neutral-2: rgba(255, 255, 255, 0.8);
+  --hero-neutral-3: var(--page-bg);
+  --hero-bottom-blend: var(--page-bg); /* or #f9fafb, whatever your next section uses */
+
+}
+
+html {
+  background-color: var(--page-bg);
+}
+
+html.dark {
+  --color-text-main: #f9fafb;   /* gray-50 */
+  --color-text-muted: #e5e7eb;  /* gray-200 */
+  --color-text-soft: #c9c7c7;   /* gray-400 */
+
+  --surface-bg: #161a1d;      /* slate-900-ish */
+  --surface-bg-hover: #161a1d;   /* solid card bg */
+  --surface-border: #03071e;        /* slate-700 */
+
+  --page-bg: #0b0b0c;            /* slate-950-ish */
+  --hero-bg: #0a0908;            /* hero on dark */
+  --footer-bg: #0a0908;          /* footer on dark */
+  --footer-border-color: #1f2937; /* ≈ gray-800 */
+
+  --hero-neutral-1: rgba(15, 23, 42, 0.7);   /* soft slate glow */
+  --hero-neutral-2: var(--page-bg);  /* almost solid */
+  --hero-neutral-3: var(--page-bg);                 /* final background */
+  --hero-bottom-blend: var(--page-bg); /* or #f9fafb, whatever your next section uses */
+}
+
+@layer base {
+  html {
+    @apply bg-gray-50 text-gray-900;
+    color-scheme: light;
+  }
+
+  html.dark {
+    @apply bg-slate-950 text-gray-50;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-transparent;
+  }
+}
+
+/* Global base styles */
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--color-text-main);
+}
+
+/* ====================================
+   GLOBAL TYPOGRAPHY SCALE (SEMANTIC)
+   Use .h1, .h2, .body, etc in markup
+   ==================================== */
+
+@layer components {
+  .h1 {
+    font-size: calc(var(--h1-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-bold;
+  }
+
+  .h2 {
+    font-size: calc(var(--h2-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-bold;
+  }
+
+  .h3 {
+    font-size: calc(var(--h3-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-semibold;
+  }
+
+  .h4 {
+    font-size: calc(var(--h4-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-semibold;
+  }
+
+  .h5 {
+    font-size: calc(var(--h5-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-semibold;
+  }
+
+  .authors {
+    font-size: calc(var(--authors-base) * var(--type-scale));
+    line-height: var(--lh-heading);
+    color: var(--color-text-main);
+    @apply font-semibold;
+  }
+
+  /* body text utilities can stay as-is, they already use the tokens */
+  .body-xl {
+    font-size: calc(var(--body-xl-base) * var(--type-scale));
+    line-height: var(--lh-body);
+    color: var(--color-text-muted);
+  }
+
+  .body-lg {
+    font-size: calc(var(--body-lg-base) * var(--type-scale));
+    line-height: var(--lh-body);
+    color: var(--color-text-muted);
+  }
+
+  .body {
+    font-size: calc(var(--body-base) * var(--type-scale));
+    line-height: var(--lh-body);
+    color: var(--color-text-muted);
+  }
+
+  .body-sm {
+    font-size: calc(var(--body-sm-base) * var(--type-scale));
+    line-height: var(--lh-body);
+    color: var(--color-text-soft);
+  }
+}
+
+
+.twitter-link {
+  color: #d62828;
+  text-decoration: none;
+  padding: 0.01em 0.5em;
+  border: 1px solid #c1121f;
+  border-radius: 3px;
+  font-size: 0.95em;
+
+  display: inline-block;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    border-color 150ms ease;
+}
+
+.twitter-link {
+  color: #d62828;
+  text-decoration: none;
+  padding: 0.12em 0.6em;
+  border: 1px solid #c1121f;
+  border-radius: 6px;
+  font-size: 0.95em;
+
+  background-color: var(--surface-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  display: inline-block;
+
+  transition:
+    background-color 180ms ease,
+    box-shadow 220ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+html:not(.dark) .twitter-link:hover {
+  background-color: var(--surface-bg-hover);
+  /* border-color: #d1d5db; gray-300 */
+  box-shadow: 0 2px 40px rgba(15, 23, 42, 0.16);
+  transform: translateY(-0.15em);
+}
+
+html.dark .twitter-link:hover {
+  background-color: var(--surface-bg-hover);
+  /* border-color: #1f2937; gray-800-ish */
+  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.6); /* pub-card glow */
+  transform: translateY(-0.15em);
+}
+
+
+/* Reusable card style */
+.surface-card {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    border-color 150ms ease;
+}
+
+.surface-card:hover {
+  background-color: var(--surface-bg-hover);
+}
+
+/* Publication cards: theme-aware shadow */
+.pub-card {
+  /* no shadow by default */
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 200ms ease;
+}
+
+/* Light theme: normal dark-ish drop shadow */
+html:not(.dark) .pub-card:hover {
+  box-shadow: 0 0 40px rgba(15, 23, 42, 0.16); /* slate-ish */
+}
+
+/* Dark theme: white glow */
+html.dark .pub-card:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+}
+
+/* Hero + footer section classes */
+.hero-section {
+  background-color: var(--hero-bg);
+  transition: background-color 150ms ease;
+}
+
+.footer-section {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border-color);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.hero-gradient-layer {
+  background: radial-gradient(
+    ellipse 800px 1200px at 0% 0%,
+    var(--hero-grad-0) 0%,
+    var(--hero-grad-1) 20%,
+    var(--hero-grad-2) 40%,
+    var(--hero-grad-3) 70%,
+    var(--hero-grad-4) 90%,
+    var(--hero-grad-5) 100%
+  );
+}
+
+.hero-bottom-fade {
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    var(--hero-bottom-blend) 100%
+  );
+}
+
+/* Smooth dark/light theme transitions
+   This only runs when <html> has class "theme-transition" */
+html.theme-transition,
+html.theme-transition * ,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition-property: background-color, color, border-color, fill, stroke, box-shadow;
+  transition-duration: 0ms;
+  transition-timing-function: ease-in-out;
+} 
+
+.nav-link-accent {
+  transition: color 150ms ease;
+}
+.nav-link-accent:hover {
+  color: var(--accent-color);
+}
+
+.custom-link {
+  color: #c1121f;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.custom-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #c1121f;
+}
+
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.backspace { margin-left: -1.25rem; }
