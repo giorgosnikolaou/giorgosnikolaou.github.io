@@ -91,6 +91,7 @@ export const siteConfig = {
       date: "2025",
       venue: "Preprint",
       link: "https://arxiv.org/abs/2510.15511",
+      image: "/publications/injectivity_without_border.png"
     },
   ],
   news: [

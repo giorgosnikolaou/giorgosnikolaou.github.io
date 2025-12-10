@@ -37,34 +37,48 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
                   <div class="group relative">
                     <Component
                       {...linkProps}
-                      class={`surface-card pub-card block relative p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl transition-all duration-300 ${
-                        project.link ? "hover:-translate-y-1" : ""
+                      class={`group block relative overflow-hidden rounded-xl sm:rounded-2xl bg-black/80 shadow-lg transition-all duration-300 ${
+                        project.link ? "hover:-translate-y-1 hover:shadow-2xl" : ""
                       }`}
                     >
-                      <div class="mb-4 space-y-3">
-                        <!-- Title row -->
-                        <div class="flex items-start justify-between">
-                          <h3 class="h4">
-                            {project.name}
-                          </h3>
-                        </div>
+                      {/* Background image */}
+                      <div
+                        class="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-500 group-hover:scale-105"
+                        style={
+                          project.image
+                            ? `background-image: url('${project.image}')`
+                            : `background-image: radial-gradient(circle at top left, ${siteConfig.accentColor}55, #020617 60%)`
+                        }
+                      />
 
-                        <!-- Venue + date row -->
-                        <div class="flex items-center justify-between">
-                          <p class="body">
-                            <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
-                            &nbsp;–&nbsp;
-                            <span class="body">{project.date}</span>
-                          </p>
-                        </div>
-
-                        <!-- Authors -->
-                        <h3 class="authors"
-                          set:html={project.authors}
-                        />
-                      </div>
-
+                      {/* Dark overlay */}
+                      <div class="pub-overlay absolute inset-0"></div>
                       
+                      {/* Content */}
+                      <div class="relative z-10 p-4 sm:p-6 md:p-8">
+                        <div class="mb-4 space-y-3">
+                          <!-- Title row -->
+                          <div class="flex items-start justify-between">
+                            <h3 class="h4">
+                              {project.name}
+                            </h3>
+                          </div>
+
+                          <!-- Venue + date row -->
+                          <div class="flex items-center justify-between">
+                            <p class=".body-not-muted">
+                              <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
+                              &nbsp;–&nbsp;
+                              <span class=".body-not-muted">{project.date}</span>
+                            </p>
+                          </div>
+
+                          <!-- Authors -->
+                          <h3 class="authors"
+                            set:html={project.authors}
+                          />
+                        </div>
+                      </div>
                     </Component>
                   </div>
                 );
