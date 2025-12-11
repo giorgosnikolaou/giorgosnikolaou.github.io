@@ -246,7 +246,7 @@ html.dark .twitter-link:hover {
 /* Reusable card style */
 .surface-card {
   background-color: var(--surface-bg);
-  border: 1px solid var(--surface-border);
+  border: 0px solid var(--surface-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition:
@@ -264,7 +264,7 @@ html.dark .twitter-link:hover {
 .pub-card {
   /* no shadow by default */
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-  transition: box-shadow 200ms ease;
+  transition: box-shadow 360ms ease;
 }
 
 /* Light theme: normal dark-ish drop shadow */

@@ -37,13 +37,13 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
                   <div class="group relative">
                     <Component
                       {...linkProps}
-                      class={`group block relative overflow-hidden rounded-xl sm:rounded-2xl bg-black/80 shadow-lg transition-all duration-300 ${
+                      class={`surface-card pub-card group block relative overflow-hidden rounded-xl sm:rounded-2xl bg-black/80 transition-all duration-300 ${
                         project.link ? "hover:-translate-y-1 hover:shadow-2xl" : ""
                       }`}
                     >
                       {/* Background image */}
                       <div
-                        class="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-500 group-hover:scale-105"
+                        class="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-180 group-hover:scale-105"
                         style={
                           project.image
                             ? `background-image: url('${project.image}')`
