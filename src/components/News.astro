@@ -7,21 +7,18 @@ const hasNews = siteConfig.news && siteConfig.news.length > 0;
   <section id="news" class="p-8 sm:p-12 md:p-16 lg:p-24" data-nav-label="News">
     <div class="mx-auto">
       {/* Header */}
-      <h2 class="h2">
-        News
-      </h2>
+      <h2 class="h2">News</h2>
       <div
         class="w-[75px] h-[4px] mt-2 mb-8 rounded-full"
         style={`background-color: ${siteConfig.accentColor}`}
       />
 
-      {/* Rows */}
-      <div class="divide-y divide-gray-200">
-        {siteConfig.news.map((item) => (
-          <div class="py-6">
-            {/* Make each row horizontally scrollable on narrow screens */}
-            <div class="overflow-x-auto">
-              <div class="grid min-w-[720px] grid-cols-[140px_1fr] items-center gap-6">
+      {/* Scrollable container — ONE scrollbar */}
+      <div class="overflow-x-auto">
+        <div class="news-list divide-y divide-gray-200 min-w-[720px]">
+          {siteConfig.news.map((item) => (
+            <div class="py-6 news-item">
+              <div class="grid grid-cols-[140px_1fr] items-center gap-6">
                 {/* Date */}
                 <div class="body-lg whitespace-nowrap">
                   {item.date}
@@ -43,9 +40,13 @@ const hasNews = siteConfig.news && siteConfig.news.length > 0;
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+
+      {/* Optional: fade hint that it scrolls */}
+      <div class="news-fade" aria-hidden="true" />
     </div>
   </section>
 )}

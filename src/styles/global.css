@@ -44,20 +44,34 @@
   --pub-shadow-color: rgba(255, 255, 255, 0.4);
 
   /* Major section backgrounds – LIGHT MODE */
-  --page-bg: #f9fafb;          /* overall page */
-  --hero-bg: #ffffff;          /* hero background */
-  --footer-bg: #f9fafb;        /* footer background */
+  --page-bg: #f9f9f6;          /* overall page */
+  --hero-bg: #f9f9f6;          /* hero background */
+  --footer-bg: #f9f9f6;        /* footer background */
   --footer-border-color: #e5e7eb; /* footer top border (≈ gray-200) */
 
   --hero-neutral-1: rgba(255, 255, 255, 0.3);
   --hero-neutral-2: rgba(255, 255, 255, 0.8);
   --hero-neutral-3: var(--page-bg);
-  --hero-bottom-blend: var(--page-bg); /* or #f9fafb, whatever your next section uses */
+  --hero-bottom-blend: var(--page-bg); /* or #f9f9f6, whatever your next section uses */
 
   /* --pub-overlay-color: rgba(220, 220, 220, 0.75);
   --pub-overlay-hover-color: rgba(240, 240, 240, 0.65); */
   --pub-overlay-color: rgba(248, 249, 250, 0.75);
   --pub-overlay-hover-color: rgba(248, 249, 250, 0.65);
+
+  --news-max-height: 30rem;
+
+  /* Inner right padding so scrollbar doesn’t sit on content */
+  --news-scroll-padding-right: 0.5rem;
+
+  /* Scrollbar styling */
+  --news-scrollbar-width: 6px;
+  --news-scrollbar-thumb: rgba(0, 0, 0, 0.22);
+  --news-scrollbar-thumb-hover: rgba(0, 0, 0, 0.32);
+
+  /* Fade hint at bottom (set to 0 to disable) */
+  --news-fade-height: 42px;
+  --news-fade-bg: rgba(255, 255, 255, 1);
 }
 
 html {
@@ -65,7 +79,7 @@ html {
 }
 
 html.dark {
-  --color-text-main: #f9fafb;   /* gray-50 */
+  --color-text-main: #f9f9f6;   /* gray-50 */
   --color-text-muted: #e5e7eb;  /* gray-200 */
   --color-text-soft: #c9c7c7;   /* gray-400 */
 
@@ -81,7 +95,7 @@ html.dark {
   --hero-neutral-1: rgba(15, 23, 42, 0.7);   /* soft slate glow */
   --hero-neutral-2: var(--page-bg);  /* almost solid */
   --hero-neutral-3: var(--page-bg);                 /* final background */
-  --hero-bottom-blend: var(--page-bg); /* or #f9fafb, whatever your next section uses */
+  --hero-bottom-blend: var(--page-bg); /* or #f9f9f6, whatever your next section uses */
 
   --pub-overlay-color: rgba(0, 0, 0, 0.75);
   --pub-overlay-hover-color: rgba(0, 0, 0, 0.65);
@@ -249,15 +263,12 @@ html.dark .twitter-link:hover {
   border: 0px solid var(--surface-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 12px rgba(15, 23, 42, 0.08);
   transition:
     background-color 150ms ease,
     box-shadow 150ms ease,
     transform 150ms ease,
     border-color 150ms ease;
-}
-
-.surface-card:hover {
-  background-color: var(--surface-bg-hover);
 }
 
 /* Publication cards: theme-aware shadow */
@@ -358,4 +369,41 @@ html.theme-transition *::after {
 /* When the card (with .group) is hovered, change overlay color */
 .group:hover .pub-overlay {
   background-color: var(--pub-overlay-hover-color);
+}
+
+/* The vertical scroll container */
+#news .news-list {
+  max-height: var(--news-max-height);
+  overflow-y: auto;
+  padding-right: var(--news-scroll-padding-right);
+
+  /* Smooth feel on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: subtle bottom fade to hint more content */
+#news .news-fade {
+  height: var(--news-fade-height);
+  margin-top: calc(var(--news-fade-height) * -1);
+  pointer-events: none;
+  /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--news-fade-bg)); */
+}
+
+/* WebKit scrollbar styling (Chrome/Safari/Edge) */
+#news .news-list::-webkit-scrollbar {
+  width: var(--news-scrollbar-width);
+  height: 6px;
+}
+
+#news .news-list::-webkit-scrollbar-thumb {
+  background-color: var(--news-scrollbar-thumb);
+  border-radius: 999px;
+}
+
+#news .news-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--news-scrollbar-thumb-hover);
+}
+
+#news .news-list::-webkit-scrollbar-track {
+  background: transparent;
 }

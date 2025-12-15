@@ -96,6 +96,11 @@ export const siteConfig = {
   ],
   news: [
     {
+      date: "Nov 27, 2025",
+      content:
+        "<strong>Invited talk</strong> on LLM injectivity and invertibility at the <a href=\"https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">Laboratory of Data Engineering</a> of Area Science Park, where we presented and discussed our recent work. Many thanks to Alberto Cazzaniga and Diego Doimo for the invitation and warm hospitality!"
+    },
+    {
       date: "Oct 17, 2025",
       content:
         "Preprint Alert: <strong>Language Models Are Injective and Hence Invertible</strong>. We prove that LLMs are injective, empirically stress-test this property, and develop the first inversion algorithm with theoretical guarantees. To top it off, the announcement went viral on <a href=\"https://x.com/GladiaLab/status/1982818213206315120\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"twitter-link\">Twitter</a> (&asymp;5M views)!",
