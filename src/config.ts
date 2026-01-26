@@ -88,13 +88,18 @@ export const siteConfig = {
     {
       name: "Language Models are Injective and Hence Invertible",
       authors: "Giorgos Nikolaou<sup>*</sup>, Tommaso Mencattini<sup>*</sup>,<br />Donato Crisostomi, Andrea Santilli, Yannis Panagakis, Emanuele Rodolà",
-      date: "2025",
-      venue: "Preprint",
+      // date: "2025",
+      venue: "ICLR 2026",
       link: "https://arxiv.org/abs/2510.15511",
       image: "/publications/injectivity_without_border.png"
     },
   ],
   news: [
+    {
+      date: "Jan 26, 2026",
+      content:
+        "Our paper \"<strong>Language Models are Injective and Hence Invertible</strong>\" was accepted at <strong>ICLR 2026</strong>!"
+    },
     {
       date: "Nov 27, 2025",
       content:
@@ -119,6 +124,11 @@ export const siteConfig = {
       date: "May 25, 2025",
       content:
         "My undergraduate thesis was selected for publication among the department's best Bachelor's and Master's theses for 2024!",
+    },
+    {
+      date: "Jul 04, 2024",
+      content:
+        "Grateful to have been awarded the \"SYN-ENOSIS for Education Scholarship\" by the Union of Greek Shipowners, supporting my graduate studies at EPFL.",
     },
   ],
   nav: [

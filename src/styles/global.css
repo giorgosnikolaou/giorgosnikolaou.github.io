@@ -59,7 +59,7 @@
   --pub-overlay-color: rgba(248, 249, 250, 0.75);
   --pub-overlay-hover-color: rgba(248, 249, 250, 0.65);
 
-  --news-max-height: 30rem;
+  --news-max-height: 300rem;
 
   /* Inner right padding so scrollbar doesn’t sit on content */
   --news-scroll-padding-right: 0.5rem;

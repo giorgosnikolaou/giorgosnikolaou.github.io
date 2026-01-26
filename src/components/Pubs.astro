@@ -65,13 +65,17 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
                           </div>
 
                           <!-- Venue + date row -->
-                          <div class="flex items-center justify-between">
                             <p class=".body-not-muted">
                               <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
+
+                            {project.date && (
+                              <>
                               &nbsp;–&nbsp;
                               <span class=".body-not-muted">{project.date}</span>
+                              </>
+                            )}
                             </p>
-                          </div>
+
 
                           <!-- Authors -->
                           <h3 class="authors"
