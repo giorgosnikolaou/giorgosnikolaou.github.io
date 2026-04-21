@@ -18,7 +18,7 @@ export const siteConfig = {
       company: "Theory of Machine Learning Lab (TML), EPFL",
       title: "Research Student",
       PI: "Nicolas Flammarion",
-      dateRange: "Oct 2025 - Present",
+      dateRange: "Feb 2026 - Present",
       bullets: [
         "Conducting research on <strong>LLM machine unlearning</strong>, leveraging hidden representations to quantify token importance for targeted forgetting.",
         "Developing token-importance-weighted loss functions and expanded benchmarking suites for the <a href=\"https://github.com/locuslab/open-unlearning\" class=\"custom-link\" target=\"_blank\" rel=\"noopener noreferrer\">open-unlearning</a> library, with the goal of submitting a PR to integrate these contributions.",
@@ -108,7 +108,7 @@ export const siteConfig = {
     {
       date: "Oct 17, 2025",
       content:
-        "Preprint Alert: <strong>Language Models Are Injective and Hence Invertible</strong>. We prove that LLMs are injective, empirically stress-test this property, and develop the first inversion algorithm with theoretical guarantees. To top it off, the announcement went viral on <a href=\"https://x.com/GladiaLab/status/1982818213206315120\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"twitter-link\">Twitter</a> (&asymp;5M views)!",
+        "Preprint Alert: <strong>Language Models Are Injective and Hence Invertible</strong>. We prove that LLMs are injective, empirically stress-test this property, and develop the first inversion algorithm with theoretical guarantees. To top it off, the announcement went viral on <a href=\"https://x.com/GladiaLab/status/1982818213206315120\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"twitter-link\">Twitter</a> (>5M views)!",
     },
     {
       date: "Jul 07, 2025",
