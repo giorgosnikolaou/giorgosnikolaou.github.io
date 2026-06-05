@@ -164,11 +164,38 @@ body {
     @apply font-semibold;
   }
 
+  /* Author line is dimmed so the owner's name (.me, full color) stands
+     out by contrast. */
   .authors {
     font-size: calc(var(--authors-base) * var(--type-scale));
     line-height: var(--lh-heading);
-    color: var(--color-text-main);
+    color: var(--color-text-soft);
     @apply font-semibold;
+  }
+
+  /* Site owner's name in author lists: bold, normal text color. */
+  .authors .me {
+    color: var(--color-text-main);
+    @apply font-bold;
+  }
+
+  /* Equal-contribution markers (the * after co-first authors). */
+  .authors sup {
+    color: var(--accent-color);
+    @apply font-bold;
+  }
+
+  /* Single "Equal contribution" legend under the publications list. */
+  .pub-legend {
+    font-size: calc(var(--body-sm-base) * var(--type-scale));
+    line-height: var(--lh-body);
+    color: var(--color-text-soft);
+    margin-top: 1.5rem;
+  }
+
+  .pub-legend sup {
+    color: var(--accent-color);
+    @apply font-bold;
   }
 
   /* body text utilities can stay as-is, they already use the tokens */

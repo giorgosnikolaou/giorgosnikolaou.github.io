@@ -5,7 +5,7 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
 
 {
   hasPubs && (
-    <section id="publications" class="p-8 sm:p-12 md:p-16 lg:p-24" data-nav-label="Publications">
+    <section id="publications" class="p-8 sm:p-12 md:p-16 lg:p-24" data-nav-label="Publications" style={`--accent-color: ${siteConfig.accentColor}`}>
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
@@ -59,22 +59,22 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
                         <div class="mb-4 space-y-3">
                           <!-- Title row -->
                           <div class="flex items-start justify-between">
-                            <h3 class="h4">
-                              {project.name}
-                            </h3>
+                            <h3 class="h4"
+                              set:html={project.name}
+                            />
                           </div>
 
                           <!-- Venue + date row -->
-                            <p class=".body-not-muted">
-                              <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
+                          <p class=".body-not-muted">
+                            <span style={`color: ${siteConfig.accentColor}`}>{project.venue}</span>
 
                             {project.date && (
                               <>
-                              &nbsp;–&nbsp;
-                              <span class=".body-not-muted">{project.date}</span>
+                                &nbsp;–&nbsp;
+                                <span class=".body-not-muted">{project.date}</span>
                               </>
                             )}
-                            </p>
+                          </p>
 
 
                           <!-- Authors -->
@@ -88,6 +88,10 @@ const hasPubs = siteConfig.publications && siteConfig.publications.length > 0;
                 );
               })}
             </div>
+
+            <p class="pub-legend">
+              <sup>*</sup>&nbsp;Equal contribution
+            </p>
           </div>
         </div>
       </div>

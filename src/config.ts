@@ -20,7 +20,7 @@ export const siteConfig = {
       PI: "Nicolas Flammarion",
       dateRange: "Feb 2026 - Present",
       bullets: [
-        "Conducting research on <strong>LLM machine unlearning</strong>, leveraging hidden representations to quantify token importance for targeted forgetting.",
+        "Developed a <strong>theoretically grounded, unsupervised</strong> method for identifying token <strong>forget-specificity</strong> and used it to drive more selective <strong>LLM unlearning</strong>; see the <a href=\"https://arxiv.org/abs/2606.06320v1\" class=\"custom-link\" target=\"_blank\" rel=\"noopener noreferrer\">preprint</a>.",
         "Developing token-importance-weighted loss functions and expanded benchmarking suites for the <a href=\"https://github.com/locuslab/open-unlearning\" class=\"custom-link\" target=\"_blank\" rel=\"noopener noreferrer\">open-unlearning</a> library, with the goal of submitting a PR to integrate these contributions.",
       ],
     },
@@ -86,8 +86,16 @@ export const siteConfig = {
   ],
   publications: [
     {
+      name: "Learning What to Forget:<br />Improving LLM Unlearning via Learned Token-Level Importance",
+      authors: "Gizem Yüce<sup>*</sup>, <strong class=\"me\">Giorgos Nikolaou</strong><sup>*</sup>, Nicolas Flammarion",
+      date: "2026",
+      venue: "Preprint",
+      link: "https://arxiv.org/abs/2606.06320v1",
+      image: "/publications/selective-unlearn.png"
+    },
+    {
       name: "Language Models are Injective and Hence Invertible",
-      authors: "Giorgos Nikolaou<sup>*</sup>, Tommaso Mencattini<sup>*</sup>,<br />Donato Crisostomi, Andrea Santilli, Yannis Panagakis, Emanuele Rodolà",
+      authors: "<strong class=\"me\">Giorgos Nikolaou</strong><sup>*</sup>, Tommaso Mencattini<sup>*</sup>,<br />Donato Crisostomi, Andrea Santilli, Yannis Panagakis, Emanuele Rodolà",
       // date: "2025",
       venue: "ICLR 2026",
       link: "https://arxiv.org/abs/2510.15511",
