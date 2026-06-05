@@ -127,15 +127,23 @@ const navItems =
   }
 
   function setThemeWithTransition(theme) {
-    root.classList.add("theme-transition");
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    window.requestAnimationFrame(() => {
+    // Cross-fade the whole page via the View Transitions API. This snapshots
+    // the page and dissolves old -> new, so gradients / SVG / shadows / blur
+    // cards all fade together (no per-property snapping). Falls back to an
+    // instant switch when unsupported or when the user prefers reduced motion.
+    if (
+      typeof document.startViewTransition !== "function" ||
+      prefersReducedMotion
+    ) {
       applyTheme(theme);
+      return;
+    }
 
-      window.setTimeout(() => {
-        root.classList.remove("theme-transition");
-      }, 450);
-    });
+    document.startViewTransition(() => applyTheme(theme));
   }
 
   // Initial nav + icon sync

@@ -350,16 +350,26 @@ html.dark .pub-card:hover {
   );
 }
 
-/* Smooth dark/light theme transitions
-   This only runs when <html> has class "theme-transition" */
-html.theme-transition,
-html.theme-transition * ,
-html.theme-transition *::before,
-html.theme-transition *::after {
-  transition-property: background-color, color, border-color, fill, stroke, box-shadow;
-  transition-duration: 0ms;
-  transition-timing-function: ease-in-out;
-} 
+/* Smooth dark/light theme switch via the View Transitions API.
+   The whole page is snapshotted and cross-faded, so gradients, the hero SVG,
+   shadows and backdrop-blur cards all dissolve together — none of the
+   per-property snapping that made the hero clunky before. We only set the
+   timing and keep the browser's default crossfade (which blends old/new with
+   plus-lighter, so there's no mid-transition opacity dip).
+   Triggered from the theme toggle in Header.astro (document.startViewTransition). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Respect reduced-motion: no crossfade, switch instantly. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
 
 .nav-link-accent {
   transition: color 150ms ease;
