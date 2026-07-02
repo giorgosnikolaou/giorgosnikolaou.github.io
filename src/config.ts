@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Giorgos Nikolaou",
-  title: "MSc in Data Science, EPFL • Researcher at GLADIA & TML",
+  title: "MSc in Data Science, EPFL • Researcher at TML",
   description: "Portfolio website of Giorgos Nikolaou",
   accentColor: "#c1121f",
   social: {
@@ -28,10 +28,10 @@ export const siteConfig = {
       company: "GLADIA, Sapienza Università di Roma",
       title: "Research Assistant",
       PI: "Emanuele Rodolà",
-      dateRange: "Aug 2025 - Present",
+      dateRange: "Aug 2025 - Jan 2026",
       bullets: [
         "Formally proved that LLMs are <strong>almost surely injective</strong> and used this insight to develop the first <strong>exact model inversion algorithm</strong>; see the <a href=\"https://arxiv.org/abs/2510.15511\" class=\"custom-link\" target=\"_blank\" rel=\"noopener noreferrer\">preprint</a>.",
-        "Ongoing research examines how representations can be leveraged to infer model behavior.",
+        "Research focused on understanding and operationalizing the <strong>representation space</strong> of modern LLMs.",
       ],
     },
     {
@@ -104,6 +104,16 @@ export const siteConfig = {
   ],
   news: [
     {
+      date: "Jul 01, 2026",
+      content:
+        "Our paper \"<strong>Language Models are Injective and Hence Invertible</strong>\" was selected for an <strong>oral presentation</strong> at the <a href=\"https://www.greeksin.ai/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">Greeks in AI 2026 Symposium</a>, held at the Eugenides Foundation in Athens (July 15&ndash;17). I'll be presenting it mid-July!"
+    },
+    {
+      date: "Jun 04, 2026",
+      content:
+        "Preprint Alert: <strong>Learning What to Forget: Improving LLM Unlearning via Learned Token-Level Importance</strong>. We introduce a theoretically grounded, unsupervised method to identify which tokens matter for forgetting and use it to drive more selective LLM unlearning. Read it on <a href=\"https://arxiv.org/abs/2606.06320v1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">arXiv</a>."
+    },
+    {
       date: "Jan 26, 2026",
       content:
         "Our paper \"<strong>Language Models are Injective and Hence Invertible</strong>\" was accepted at <strong>ICLR 2026</strong>!"
@@ -121,7 +131,7 @@ export const siteConfig = {
     {
       date: "Jul 07, 2025",
       content:
-        "Excited to begin my Data Science Intersnhsip at Logmind!",
+        "Excited to begin my Data Science Internship at Logmind!",
     },
     {
       date: "Jun 27, 2025",
