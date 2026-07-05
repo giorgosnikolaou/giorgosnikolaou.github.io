@@ -4,7 +4,7 @@ export const siteConfig = {
   description: "Portfolio website of Giorgos Nikolaou",
   accentColor: "#c1121f",
   social: {
-    email: "georgios.nikolaoul@epfl.ch",
+    email: "georgios.nikolaou@epfl.ch",
     linkedin: "https://linkedin.com/in/g-nikolaou",
     twitter: "https://x.com/GiorgosNik02",
     github: "https://github.com/giorgosnikolaou",
