@@ -7,8 +7,8 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
   hasExperience && (
     <section id="experience" class="p-8 sm:p-12 md:p-16 lg:p-24" data-nav-label="Experience">
       <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
+        <div class="grid grid-cols-1 lg:grid-cols-24 gap-8 lg:gap-x-0 items-start">
+          <div class="lg:col-span-7">
             <h2 class="h2">
               Experience
             </h2>
@@ -18,7 +18,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
             />
           </div>
 
-          <div class="lg:col-span-8">
+          <div class="lg:col-span-17 lg:pl-5">
             <div class="relative">
               {siteConfig.experience.map((exp, index) => (
                 <div class="relative mb-12 last:mb-0">
