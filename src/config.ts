@@ -108,7 +108,7 @@ export const siteConfig = {
       // date: "2025",
       venue: "ICLR 2026",
       link: "https://arxiv.org/abs/2510.15511",
-      image: "/publications/injectivity_without_border.png"
+      image: "/publications/injectivity.png"
     },
   ],
   awards: [
