@@ -11,7 +11,7 @@ export const siteConfig = {
     scholar: "https://scholar.google.com/citations?user=pol3t8MAAAAJ",
   },
   aboutMe:
-    "I'm currently living in Vienna &#x1F1E6;&#x1F1F9;, working as a <strong>Research Intern at ISTA</strong> with <strong>Francesco Locatello</strong> while pursuing my <strong>MSc in Data Science</strong> at <strong>EPFL</strong>, after completing my <strong>BSc in Computer Science</strong> at the <strong>University of Athens</strong>. When I'm not buried in assignments, you can find me swimming, experimenting with new recipes, or catching up on some much-needed sleep. In my research, I'm interested in understanding the structure of representations and exploring AI safety, particularly machine unlearning and the faithfulness of chain-of-thought reasoning.",
+    "I'm currently living in Vienna &#x1F1E6;&#x1F1F9;, working as a <strong>Research Intern at ISTA</strong> with <strong>Francesco Locatello</strong> while pursuing my <strong>MSc in Data Science</strong> at <strong>EPFL</strong>, after completing my <strong>BSc in Computer Science</strong> at the <strong>University of Athens</strong>. When I'm not buried in assignments or research, you can find me swimming, experimenting with new recipes, or catching up on some much-needed sleep. My research focuses on understanding the internal representations and behaviour of frontier models and using these insights to inform approaches in AI safety.",
   skills: ["Representation Learning", "CoT Faithfulness", "AI Safety"],
   experience: [
     {
@@ -153,11 +153,11 @@ export const siteConfig = {
       content:
         "Preprint Alert: <strong>Learning What to Forget: Improving LLM Unlearning via Learned Token-Level Importance</strong>. We introduce a theoretically grounded, unsupervised method to identify which tokens matter for forgetting and use it to drive more selective LLM unlearning. Read it on <a href=\"https://arxiv.org/abs/2606.06320v1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">arXiv</a>."
     },
-    {
-      date: "Mar 01, 2026",
-      content:
-        "My <strong>$80,000 research grant</strong> from <strong>Coefficient Giving</strong>, administered by <a href=\"https://www.existence.org/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">Berkeley Existential Risk Initiative</a>, officially began today."
-    },
+    // {
+    //   date: "Mar 01, 2026",
+    //   content:
+    //     "My <strong>$80,000 research grant</strong> from <strong>Coefficient Giving</strong>, administered by <a href=\"https://www.existence.org/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"custom-link\">Berkeley Existential Risk Initiative</a>, officially began today."
+    // },
     {
       date: "Jan 26, 2026",
       content:
