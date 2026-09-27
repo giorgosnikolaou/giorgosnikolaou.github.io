@@ -141,7 +141,7 @@ export const siteConfig = {
     {
       date: "Sep 24, 2026",
       content:
-        "Our paper \"<strong>Learning What to Forget: Improving LLM Unlearning via Learned Token-Level Importance</strong>\" was accepted at <strong>NeurIPS 2026</strong>!"
+        "Our paper \"<strong>Learning What to Forget: Improving LLM Unlearning via Learned Token-Level Importance</strong>\" was accepted at <strong>NeurIPS 2026</strong>, see you at Paris!"
     },
     {
       date: "Jul 01, 2026",
